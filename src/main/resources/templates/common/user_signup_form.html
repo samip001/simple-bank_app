@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<div th:fragment="user_form">
+
+    <div class="form-group">
+        <label>First Name: </label>
+        <input type="text" class="form-control" required="required"
+               autofocus="autofocus"
+               th:field="${employee.firstName}"
+        >
+    </div>
+    <div class="form-group">
+        <label>Middle Name: </label>
+        <input type="text" class="form-control"
+               autofocus="autofocus"
+               th:field="${employee.middleName}"
+        >
+
+    </div>
+
+    <div class="form-group">
+        <label>Last Name: </label>
+        <input type="text" class="form-control" required="required"
+               autofocus="autofocus"
+               th:field="${employee.lastName}"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>Gender: </label>
+        <input type="text" class="form-control" required="required"
+               autofocus="autofocus"
+               th:field="${employee.gender}"
+        >
+    </div>
+    <div class="form-group">
+        <label>Phone: </label>
+        <input type="text" class="form-control" required="required"
+               autofocus="autofocus"
+               th:field="${employee.phone}"
+        >
+    </div>
+</div>

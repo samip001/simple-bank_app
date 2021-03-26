@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="common/template :: common-header">
+</head>
+<body>
+
+<div th:replace="common/template :: navbar"/>
+
+<div class="container-fluid">
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-4">
+            <section class="py-4 mb-4" th:if="!${found}">
+                <div class="container">
+                    <div class="row">
+                        <h2>No Any result found based on your query</h2>
+                        <a th:href="@{/}" class="btn btn-block btn-info">Home</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-4 mb-4" th:if="${found}">
+                <div class="container">
+                        <div class="card">
+
+                            <div class="card-header">
+                                <h3 th:text="${interestRate.bankName}"></h3>
+                            </div>
+
+                            <div class="card-body">
+
+                                <h4>Terms: <span th:text="${interestRate.terms} + ' years'"></span></h4>
+                                <h5>Interest Rate: <span th:text="${interestRate.interest_rate + '%'}"></span></h5>
+                                <p>Sending Email function not implemented</p>
+                                <form th:action="@{/sendmail}" method="post">
+                                    <div class="form-group">
+                                        <label>Email: </label>
+                                        <input type="email" class="form-control" required="required"
+                                               autofocus="autofocus"
+                                               name="email" placeholder="Enter Email"
+                                        >
+                                    </div>
+
+                                    <button class="btn btn-info btn-block" type="submit">
+                                        Send Mail
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div class="card-footer">
+
+                            </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+<div th:replace="common/template :: js-scripts"></div>
+</html>

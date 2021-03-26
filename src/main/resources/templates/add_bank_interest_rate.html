@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="common/template :: common-header">
+</head>
+<body>
+
+<div th:replace="common/template :: navbar"/>
+
+<div class="container-fluid">
+
+    <div class="row my-2 ">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <h2 class="align-content-center">New Bank Interest Rate</h2>
+            <form th:action="@{/addbankinterest}" th:object="${interestRate}" method="post">
+                <div class="form-group">
+                    <label>Bank Name: </label>
+                    <input type="text" class="form-control" required="required"
+                           autofocus="autofocus"
+                           th:field="${interestRate.bankName}">
+                </div>
+
+                <div class="form-group">
+                    <label>Interest Rate: </label>
+                    <input type="text" class="form-control"
+                           autofocus="autofocus"
+                           th:field="${interestRate.interest_rate}">
+                </div>
+
+                <div class="form-group">
+                    <label>Years: </label>
+                    <input type="text" class="form-control" required="required"
+                           autofocus="autofocus"
+                           th:field="${interestRate.terms}">
+                </div>
+
+                <div class="form-group">
+                    <label>Details: </label>
+                    <textarea type="text" class="form-control" required="required"
+                           autofocus="autofocus"
+                           th:field="${interestRate.details}" />
+                </div>
+
+
+                <!--<div class="alert alert-danger alert-dismissible fade show"-->
+                     <!--role="alert" th:if="${param.error}">-->
+                    <!--Invalid Email and Password.-->
+                    <!--<a th:href="@{/user/password}" class="alert-link">Forgot Password. Click Here</a>.-->
+                    <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+                        <!--<span aria-hidden="true">&times;</span>-->
+                    <!--</button>-->
+                <!--</div>-->
+                <div class="alert alert-success alert-dismissible fade show"
+                     role="alert" th:if="${message}" th:text="${message}">
+                    Password do not match .
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <!--<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${logout}">-->
+                        <!--<strong>Hey see you soon</strong> Logout.-->
+                        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+                            <!--<span aria-hidden="true">&times;</span>-->
+                        <!--</button>-->
+                    <!--</div>-->
+
+                <button class="btn btn-info btn-block" type="submit">
+                    Add Bank Interest Rate
+                </button>
+
+            </form>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+<div th:replace="common/template :: js-scripts"></div>
+</html>

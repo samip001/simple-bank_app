@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="common/template :: common-header">
+</head>
+<body>
+
+<div th:replace="common/template :: navbar"/>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex flex-column align-items-center">
+                <h1 class="my-2">Welcome to Banking Test</h1>
+
+                <a th:href="@{/add}" class="btn btn-info m-4" role="button">Sign Up</a>
+
+                <a th:href="@{/bankinterest}" class="btn btn-info my-2" role="button">Add Bank Interest Rate</a>
+                <a th:href="@{/banks}" class="btn btn-info my-2" role="button">List ALL Bank Interest Rate</a>
+                <a th:href="@{/users}" class="btn btn-info my-2" role="button">List ALL Users</a>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+</body>
+
+<div th:replace="common/template :: js-scripts"></div>
+</html>

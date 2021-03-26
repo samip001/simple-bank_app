@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/template :: common-header">
+</head>
+
+<body>
+<div th:replace="common/template :: navbar"/>
+
+<header id="main-header" class="py-2 bg-success text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Users</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Products-->
+<section class="py-4 mb-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 mr-auto">
+                <a th:href="@{/}" class="btn btn-outline-success btn-block">
+                    <i class="fa fa-arrow-left"></i>&nbsp;Back To Home
+                </a>
+            </div>
+
+            <div class="col-6">
+
+            </div>
+
+            <div class="col-md-3">
+                <a th:href="@{/add}" class="btn btn-outline-success">
+                    <i class="fa fa-plus"></i>&nbsp;Add New User
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-4 mb-4" th:if="!${found}">
+    <div class="container">
+        <div class="row">
+            <h2>No Any result found based on your query</h2>
+            <a th:href="@{/}" class="btn btn-block btn-info">Home</a>
+        </div>
+    </div>
+</section>
+
+<section class="py-4 mb-4" th:if="${found}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>User List</h4>
+                        <p>View Details function are not implemented</p>
+                    </div>
+
+
+                    <table class="table table-striped">
+                        <thead class="bg-success">
+                        <tr>
+                            <th>#</th>
+                            <th>User Name</th>
+                            <th>Gender</th>
+                            <th>Phone</th>
+                            <th>View Details</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr th:each="e,iterator: ${employees}">
+                            <td th:text="${iterator.index}+1"></td>
+                            <td th:text="${e.firstName} +' '+${e.lastName}"></td>
+                            <td th:text="${e.gender}"></td>
+                            <td th:text="${e.phone}"></td>
+
+
+                            <td>
+                                <a class="btn btn-outline-dark" th:href="@{/user/{id}(id=${e.id})}">
+                                    <i class="fa fa-angle-double-right"></i>&nbsp;Details
+                                </a>
+                            </td>
+                            <td>
+                                <a th:href="@{/user/{id}(id=${e.id})}+'?type=edit'" class="btn btn-outline-dark">
+                                    <i class="fa fa-pencil"></i>&nbsp;Edit
+                                </a>
+                                <a th:href="@{/user/{id}(id=${e.id})}+'?type=delete'" class="btn btn-outline-dark">
+                                    <i class="fa fa-recycle"></i>&nbsp;Delete
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div th:replace="common/template :: js-scripts"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:fragment="common-header">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Bootstrap core CSS -->
+    <!--<link rel="stylesheet" th:href="@{/css/font-awesome.css}">-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title th:if="${titlename}" th:text="${titlename}">Banking App</title>
+
+</head>
+<body>
+
+<div th:fragment="navbar">
+    <!--<div class="page-top"-->
+    <!--style="width: 100%; height: 20px; background-color: #f4d203;"></div>-->
+    <!-- Static navbar -->
+    <!--<nav class="navbar navbar-expand-sm navbar-dark bg-warning p-0">-->
+        <!--<div class="container">-->
+            <!--<a class="navbar-brand" th:href="@{/}">Banking App</a>-->
+            <!--<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">-->
+                <!--<span class="navbar-toggler-icon"></span>-->
+            <!--</button>-->
+        <!--</div>-->
+    <!--</nav>-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" th:href="@{/}" data-abc="true">Banking App</a>
+        <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>-->
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <!--<li class="nav-item active"> <a class="nav-link" href="#" data-abc="true">Home <span class="sr-only">(current)</span></a> </li>-->
+                <!--<li class="nav-item"> <a class="nav-link" href="#" data-abc="true">contact</a> </li>-->
+                <!--<li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Pricing</a> </li>-->
+                <!--<li class="nav-item"> <a class="nav-link" href="#" data-abc="true">Social</a> </li>-->
+            </ul>
+            <form th:action="@{/search}" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search Bank Interest" name="interestrate">
+                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="js-scripts">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/pooper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/ckeditor.js}"></script>
+    <script th:src="@{/js/app.js}"></script>
+</div>
+</body>
+</html>
